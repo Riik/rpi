@@ -1,6 +1,6 @@
 import feedparser
 def get_news():
-    url = 'http://feeds.nos.nl/nosjournaal?format=xml'
+    url = 'http://www.volkskrant.nl/rss.xml'
     feed = feedparser.parse(url)
     #for item in feed["items"]:
     #    title = item["title"].encode('ascii','replace')
