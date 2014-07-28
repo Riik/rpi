@@ -11,6 +11,11 @@ os.system('bw_tool -I -a 94 -D /dev/i2c-1 -w 10:0')
 os.system('bw_tool -I -a 94 -D /dev/i2c-1 -w 12:000f')
 # set brightness
 os.system('bw_tool -I -a 94 -D /dev/i2c-1 -w 13:0080')
+# display temperature:
+# set cursor to new line
+os.system('bw_tool -I -a 94 -D /dev/i2c-1 -w 11:20')
+# print weather data
+os.system('bw_tool -I -a 94 -D /dev/i2c-1 -t Delft, {} C'.format(temperature))
 while 1:
 	# get system time in specified format
 	timestr = time.strftime("%H:%M:%S")
