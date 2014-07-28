@@ -12,10 +12,14 @@ def get_news():
     while title[i] != ' ':
         i = i - 1
     k = i + 16
-    while title[k] != ' ':
-        k= k - 1
+    if k < len(title):
+	while title[k] != ' ':
+            k = k - 1
+    else:
+	k = len(title)
     t = []
     t.append(title[:i])
     t.append(title[i:k])
     return t
     
+get_news()

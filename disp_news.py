@@ -11,7 +11,9 @@ os.system('bw_tool -I -a 94 -D /dev/i2c-1 -w 12:000f')
 # set brightness
 os.system('bw_tool -I -a 94 -D /dev/i2c-1 -w 13:0080')
 while 1:
-	t = get_news
+	t = get_news()
+	print(t[0])
+	print(t[1])
 	# clear screen
 	os.system('bw_tool -I -a 94 -D /dev/i2c-1 -w 10:0')
 	# write first line
