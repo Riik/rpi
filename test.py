@@ -18,14 +18,14 @@ while 1:
         os.system('bw_tool -I -a 94 -D /dev/i2c-1 -w 11:00')
 	# print time
 	os.system('bw_tool -I -a 94 -D /dev/i2c-1 -t {0}'.format(timestr))
-	# set cursor to new line
-	os.system('bw_tool -I -a 94 -D /dev/i2c-1 -w 11:20')
-	# print weather data
-	os.system('bw_tool -I -a 94 -D /dev/i2c-1 -t Delft, {} C'.format(temperature))
 	i = i + 1
 	if i > refreshtime:
-		i = 0
-		temperature = get_temperature()
+	   i = 0
+	   temperature = get_temperature()
+	   # set cursor to new line
+	   os.system('bw_tool -I -a 94 -D /dev/i2c-1 -w 11:20')
+	   # print weather data
+	   os.system('bw_tool -I -a 94 -D /dev/i2c-1 -t Delft, {} C'.format(temperature))
 	time.sleep(1)
 
 
