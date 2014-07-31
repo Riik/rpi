@@ -1,6 +1,6 @@
 import feedparser
 def get_news():
-    url = 'http://www.volkskrant.nl/rss.xml'
+    url = 'http://www.spiegel.de/schlagzeilen/eilmeldungen/index.rss'
     feed = feedparser.parse(url)
     #for item in feed["items"]:
     #    title = item["title"].encode('ascii','replace')
