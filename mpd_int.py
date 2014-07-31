@@ -5,14 +5,21 @@ import os
 
 class MPD_interface:
         
+    stdin_path = '/dev/null'
+    stdout_path = '/tmp/stdout.log'
+    stderr_path = '/tmp/stderr.log'
+    pidfile_path = '/var/lock/mpd_int.pid'
+    pidfile_timeout = 200
+        
     def __init__(self):
+        
         # conenct client and set values
         client = MPDClient()
         client.timeout = 30
         client.idletimeout = None
         client.connect("localhost", 6600)
         self.client = client
-        
+    
     def run(self):
         self.main_loop()
         
