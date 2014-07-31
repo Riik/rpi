@@ -5,6 +5,12 @@ from news import get_news
 
 class news_daemon():
     
+    stdin_path = '/dev/null'
+    stdout_path = '/tmp/stdout.log'
+    stderr_path = '/tmp/stderr.log'
+    pidfile_path = '/var/lock/disp_news.pid'
+    pidfile_timeout = 200
+    
     def run(self):
         self.news_displayer()
 
