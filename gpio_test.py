@@ -9,7 +9,7 @@ try:
             print "Port 21 is HIGH"
         else:
             print "Port 21 is LOW"
-        sleep(0.1)         # wait 0.1 seconds
+        sleep(1)         # wait 0.1 seconds
 
 finally:                   # this block will run no matter how the try block exits
     GPIO.cleanup()         # clean up after yourself

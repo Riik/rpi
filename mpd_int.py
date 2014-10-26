@@ -18,6 +18,7 @@ class MPD_interface:
         client.timeout = 30
         client.idletimeout = None
         client.connect("localhost", 6600)
+	print(client.status())
         self.client = client
     
     def run(self):
@@ -29,6 +30,8 @@ class MPD_interface:
         # first read-out of current song
         # currentsong returns JSON message with info about song
         oldsong = client.currentsong()
+	print('main loop started')
+	print(client.stats())
         while 1:
                 # read current song, if the song changed execute loop
            	song = client.currentsong()
