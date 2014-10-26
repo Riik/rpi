@@ -4,8 +4,10 @@ import pygame
 
 def buttonEvent (pin):
 	global s
-	print("Falling edge detected")
-	s.play()
+	print(GPIO.input(18))
+	if(GPIO.input(18)):
+		print("Falling edge detected")
+		s.play()
 
 def main():
 	global s
@@ -16,7 +18,7 @@ def main():
 
 	GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-	GPIO.add_event_detect(18, GPIO.FALLING, bouncetime=300)
+	GPIO.add_event_detect(18, GPIO.FALLING, bouncetime=50)
 	GPIO.add_event_callback(18,buttonEvent)
 	while True:
 		time.sleep(150)
