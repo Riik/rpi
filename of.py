@@ -18,8 +18,7 @@ def main():
 
 	GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-	GPIO.add_event_detect(18, GPIO.FALLING, bouncetime=50)
-	GPIO.add_event_callback(18,buttonEvent)
+	GPIO.add_event_detect(18, GPIO.FALLING, callback=buttonEvent, bouncetime=150)
 	while True:
 		time.sleep(150)
 		print("Running...")
