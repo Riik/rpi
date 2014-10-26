@@ -6,24 +6,32 @@ import glob
 
 
 def buttonEvent (pin):
-	global s
-	print(GPIO.input(18))
-	if(GPIO.input(18)):
-		print("Falling edge detected")
-		rand = random.randint(0, len(s))
-                s[rand].play()
+	global s, music
+
+	time.sleep(0.05)
+	if (GPIO.input(18)):
+		music.stop()
+		print("Playing music")
+		music  = s[random.randint(0, len(s))]
+ 		music.play()
+	else:
+		music.stop()
 
 def main():
-	global s
+	global s, music
 	pygame.mixer.init()
 	random.seed(time.time())
         pygame.mixer.init()
 
+	x = glob.glob('./wavjes/*.wav')
         s = []
         for filename in x:
             s.append(pygame.mixer.Sound(filename))
             print("loaded: {}".format(filename))
-	
+	print("Loaded {} files".format(len(s)))
+	music = s[0]
+	music.play()	
+
 	GPIO.setmode(GPIO.BCM)
 
 	GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
