@@ -3,7 +3,7 @@ import time
 import pygame
 
 def buttonEvent (pin):
-	global time_stamp s
+	global time_stamp, s
 	if time.time() - time_stamp > 0.5:
 		print("Starting music")
 		s.rewind()
@@ -12,7 +12,7 @@ def buttonEvent (pin):
 
 
 def main():
-	global time_stamp s
+	global time_stamp, s
 	time_stamp  = time.time()
 	pygame.mixer.init()
 	s = pygame.mixer.Sound("Explosion.wav")
